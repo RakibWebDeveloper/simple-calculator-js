@@ -7,7 +7,6 @@ function getHistory() {
 function printHistory(num) {
     document.getElementById("history-value").innerText = num;
 }
-printHistory("9+9+9+9+4")
 
 
 // output Value
@@ -22,13 +21,17 @@ function printOutput(num) {
     }
     else {
         document.getElementById("output-value").innerText = getFormattedNumber(num);
+        console.log(typeof getFormattedNumber(num));
+        
     }
+    
 }
 
 //formatted number
 function getFormattedNumber(num) {
     var n = Number(num);
     var value = n.toLocaleString("en")
+    
     return value;
 }
 
@@ -40,4 +43,56 @@ function reverseNumberFormat(num) {
 
 // Operator
 var operator = document.getElementsByClassName("operator");
-console.log(operator);
+
+for(var i = 0; i< operator.length; i++) {
+    operator[i].addEventListener("click", function() {
+        // Clear
+        if (this.id == "clear") {
+            printHistory("");
+            printOutput("");
+        }
+        // Backspace
+        else if (this.id == "backspace") {
+            var output = reverseNumberFormat(getOutput()).toString();
+
+            if (output) { //If Output has a value
+                output = output.substr(0, output.length-1);
+                printOutput(output);
+            }
+        } 
+        else {
+            var output = getOutput();
+            var history = getHistory();
+
+            if (output!="") {
+                output = reverseNumberFormat(output);
+                history += output;
+
+                // Equal operator
+                if(this.id == "=") {
+                    var result = eval(history);
+                    printOutput(result);
+                    printHistory("");
+                } 
+                // Other operator
+                else {
+                    history = history + this.id;
+                    printHistory(history);
+                    printOutput("");
+                }
+            }
+        }
+
+
+    })
+}
+// numbers
+var number = document.getElementsByClassName("number");
+
+for(var i = 0; i< number.length; i++) {
+    number[i].addEventListener("click", function() {
+        var output = reverseNumberFormat(getOutput());
+        output += this.id;
+        printOutput(output);
+    })
+}
