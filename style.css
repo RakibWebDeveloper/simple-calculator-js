@@ -12,14 +12,12 @@ html {
 
 body {
     font-family: 'Open Sans', sans-serif;
-    background-color: rgba(105, 90, 205, 0.911);
-    height: 100vh;
-    overflow: hidden;
+    background-color: slategrey;
 }
 
 #container {
     background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('./img/bgImg.jpg');
-    width: 100rem;
+    max-width: 100rem;
     height: 55rem;
     background-size: cover;
     margin: 10rem auto;
@@ -71,8 +69,8 @@ body {
     cursor: pointer;
 }
 
-.number, .empty {
-    background-color: #eaedef;
+.number, .operator {
+    background-color: rgba(112, 128, 144, 0.212);
 }
 .number:active, .operator:active {
     font-size: 1.3rem;
@@ -105,5 +103,7 @@ button:nth-child(20){
 @media screen and (max-width: 575px) {
     #container {
         margin: 0 auto;
+        padding-top: 8rem;
+        height: 100vh;
     }
 }
