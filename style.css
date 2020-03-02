@@ -1,0 +1,61 @@
+* ,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: rgba(105, 90, 205, 0.911);
+}
+
+#container {
+    background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('./img/bgImg.jpg');
+    width: 100rem;
+    height: 55rem;
+    background-size: cover;
+    margin: 10rem auto;
+}
+
+#calculator {
+    width: 320px;
+    height: 520px;
+    background-color: #eaedef;
+    margin: 0 auto;
+    position: relative;
+    top: 15px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgb(41, 38, 38);
+}
+
+#result {
+    height: 120px;
+    text-align: right;
+}
+#history {
+    
+}
+
+#output {
+
+}
+
+
+#keyboard {
+    height: 420px;
+}
+
+
+
+
+@media screen and (max-width: 575px) {
+    #container {
+        margin: 0 auto;
+    }
+}
