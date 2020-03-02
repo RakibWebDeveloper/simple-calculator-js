@@ -21,14 +21,16 @@ function printOutput(num) {
     }
     else {
         document.getElementById("output-value").innerText = getFormattedNumber(num);
-        console.log(typeof getFormattedNumber(num));
-        
+
     }
     
 }
 
 //formatted number
 function getFormattedNumber(num) {
+    if (num == "-") {
+        return "";
+    }
     var n = Number(num);
     var value = n.toLocaleString("en")
     
@@ -64,8 +66,15 @@ for(var i = 0; i< operator.length; i++) {
             var output = getOutput();
             var history = getHistory();
 
-            if (output!="") {
-                output = reverseNumberFormat(output);
+            // Check output is empty and history's last is operator
+            if(output == "" && history!="") {
+                if(isNaN(history[history.length-1])) {
+                    history = history.substr(0, history.length-1);
+                }
+            }
+
+            if (output!="" || history!= "") {
+                output = output == "" ? output:reverseNumberFormat(output);
                 history += output;
 
                 // Equal operator
