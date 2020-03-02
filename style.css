@@ -13,6 +13,8 @@ html {
 body {
     font-family: 'Open Sans', sans-serif;
     background-color: rgba(105, 90, 205, 0.911);
+    height: 100vh;
+    overflow: hidden;
 }
 
 #container {
@@ -24,8 +26,8 @@ body {
 }
 
 #calculator {
-    width: 320px;
-    height: 520px;
+    width: 32rem;
+    height: 52rem;
     background-color: #eaedef;
     margin: 0 auto;
     position: relative;
@@ -35,24 +37,70 @@ body {
 }
 
 #result {
-    height: 120px;
+    height: 12rem;
     text-align: right;
+    margin: 0 2rem;
+
 }
 #history {
-    
+    height: 2rem;
+    padding-top: 2rem;
+    font-size: 1.5rem;
+    color: rgb(58, 58, 58);
+
 }
 
 #output {
-
+    height: 6rem;
+    padding-top: 1rem 2rem;
+    font-size: 3rem;
 }
-
 
 #keyboard {
-    height: 420px;
+    height: 42rem;
+}
+.operator, .number, .empty {
+    width: 5rem;
+    height: 5rem;
+    margin: 1.5rem;
+    border-radius: 50%;
+    border: none;
+    float: left;
+    font-weight: bold;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
+.number, .empty {
+    background-color: #eaedef;
+}
+.number:active, .operator:active {
+    font-size: 1.3rem;
+}
 
-
+.number:focus, .operator:focus, .empty:focus {
+    outline: none;
+}
+button:nth-child(4){
+	font-size: 20px;
+	background-color: #20b2aa;
+}
+button:nth-child(8){
+	font-size: 20px;
+	background-color: #ffa500;
+}
+button:nth-child(12){
+	font-size: 20px;
+	background-color: #f08080;
+}
+button:nth-child(16){
+	font-size: 20px;
+	background-color: #7d93e0;
+}
+button:nth-child(20){
+	font-size: 20px;
+	background-color: #9477af;
+}
 
 @media screen and (max-width: 575px) {
     #container {
